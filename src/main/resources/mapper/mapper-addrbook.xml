@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper-emp">
+	<!-- 여기서 resultType의 값은 VO 파일이 있는 곳을 적어주면 된다. -->
+	<!-- // 여기서 만약 별칭으로 abId한 이유는 VO와 변수명을 통일 시키기 위해서이다. 만약하지않는다면 null값이 출력됨!!!!! -->
+	<select id="getDBList" resultType="lx.edu.springboot.vo.AddrBookVO">
+		select AB_ID abId
+		,AB_NAME
+		abName
+		,ab_email
+		,ab_comdept
+		,ab_birth
+		,ab_tel
+		,ab_memo
+		from addrbook
+	</select>
+	<insert id="insertDB" parameterType="lx.edu.springboot.vo.AddrBookVO">
+		insert into addrbook(ab_name, ab_email, ab_comdept, ab_birth, ab_tel, ab_memo)
+		values(#{abName}, #{abEmail}, #{abComdept}, #{abBirth}, #{abTel}, #{abMemo})
+	</insert>
+	<!-- delete문의 경우 파라미터로 ab_id 값을 받기 때문에 AddrBookVO를 받는 게 아닌 int를 적어주는 게 옳바르다 -->
+	<delete id="deleteDB" parameterType="int">
+		delete from addrbook where ab_id = #{abId}
+	</delete>
+	<update id="updateDB" parameterType="lx.edu.springboot.vo.AddrBookVO">
+		update addrbook 
+		set ab_name = #{abName}, 
+		    ab_email = #{abEmail}, 
+		    ab_comdept = #{abComdept}, 
+		    ab_birth = #{abBirth}, 
+		    ab_tel = #{abTel}, 
+		    ab_memo = #{abMemo}
+		where ab_id = #{abId}
+	</update>
+	<select id="getDB" parameterType="int" resultType="lx.edu.springboot.vo.AddrBookVO">
+		select AB_ID
+		,AB_NAME 
+		,ab_email
+		,ab_comdept
+		,ab_birth
+		,ab_tel
+		,ab_memo 
+		from addrbook
+		where ab_id = #{abId}
+	</select>
+	<delete id=""></delete>
+</mapper>
