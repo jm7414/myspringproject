@@ -10,7 +10,7 @@ import lx.edu.springboot.vo.AddrBookVO;
 
 @Component
 public class AddrBookDAO {
-
+	
 	@Autowired
 	SqlSession session;
 	
@@ -28,12 +28,9 @@ public class AddrBookDAO {
 	public int updateDB(AddrBookVO ab) throws Exception {
 		return session.update("updateDB", ab);
 	}
-	
-	public boolean deleteDB(AddrBookVO ab) throws Exception {
-		boolean result = false;
-		return result;
+	public boolean deleteDB(int abId) throws Exception {
+		return false;
 	}
 	
-
-
+	
 }
