@@ -5,13 +5,12 @@
 	<!-- // 여기서 만약 별칭으로 abId한 이유는 VO와 변수명을 통일 시키기 위해서이다. 만약하지않는다면 null값이 출력됨!!!!! -->
 	<select id="getDBList" resultType="lx.edu.springboot.vo.AddrBookVO">
 		select AB_ID abId
-		,AB_NAME
-		abName
-		,ab_email
-		,ab_comdept
-		,ab_birth
-		,ab_tel
-		,ab_memo
+		,AB_NAME abName
+		,ab_email abEmail
+		,ab_comdept abComdept
+		,ab_birth abBirth
+		,ab_tel abTel
+		,ab_memo abMemo
 		from addrbook
 	</select>
 	<insert id="insertDB" parameterType="lx.edu.springboot.vo.AddrBookVO">
@@ -33,13 +32,13 @@
 		where ab_id = #{abId}
 	</update>
 	<select id="getDB" parameterType="int" resultType="lx.edu.springboot.vo.AddrBookVO">
-		select AB_ID
-		,AB_NAME 
-		,ab_email
-		,ab_comdept
-		,ab_birth
-		,ab_tel
-		,ab_memo 
+		select AB_ID abId
+		,AB_NAME abName
+		,ab_email abEmail
+		,ab_comdept abComdept
+		,ab_birth abBirth
+		,ab_tel abTel
+		,ab_memo abMemo
 		from addrbook
 		where ab_id = #{abId}
 	</select>
